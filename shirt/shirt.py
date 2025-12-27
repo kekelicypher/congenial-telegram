@@ -18,20 +18,20 @@ if os.path.splitext(sys.argv[1])[1] not in [".jpg", ".jpeg", ".png"] and os.path
 
 
 def main():
-    try:
-        with Image.open("shirt.png") as file:
-            size = file.size
-    except FileNotFoundError:
-        sys.exit()
+    # try:
+    file = Image.open("shirt.png")
+    size = file.size
+    # except FileNotFoundError:
+    #     sys.exit()
 
-    try:
-        with Image.open(sys.argv[1]) as shirt:
-            # Resizing
-            ImageOps.fit(shirt, size)
-            shirt.paste()
+    shirt = Image.open(sys.argv[1])
+    # Resizing
+    shirt = ImageOps.fit(shirt, size)
+    shirt.paste(file, file)
+    shirt.save(sys.argv[2])
 
-    except FileNotFoundError:
-        sys.exit("File not found")
+    file.close
+    shirt.close
 
 
 if __name__ == "__main__":
