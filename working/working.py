@@ -22,34 +22,46 @@ def convert_to_24h(time):
         if ":" in time:
             time2 = time.split(" ")[0]
             hour, minute = time2.split(":")
+            hour = int(hour)
+            minute = int(minute)
         else:
-            hour = time.split(" ")[0]
+            hour = int(time.split(" ")[0])
             minute = "00"
         if int(hour) == 12:
-            hour = "00"
+            hour = 0
 
-    return f"{hour}:{minute}"
+    # if hour > 23 or  minute > 60:
+    #     raise ValueError
+
+    return f"{hour:02}:{minute:02}"
 
 
 def convert(s):
     # pattern = r"([0-9])|(1[0-2])[:/s]/sto/s([0-9])|(1[0-2])/s(PM|AM)"
     # pattern = r"^[0-9]|1[0-2][:/s][0-5][0-9]?$"
     # pattern = r"[0-9] (AM|PM) to [0-9] (AM|PM)"
-    pattern = r"((?P<first>([0-9]|1[0-2])(:([0-5][0-9]))? (AM|PM)) to (?P<second>([0-9]|1[0-2])(:([0-5][0-9]))? (AM|PM)))"
+    pattern = r"((?P<first>([0-9]|1[0-2])(:([0-5][0-9]))? (AM|PM)) (to) (?P<second>([0-9]|1[0-2])(:([0-5][0-9]))? (AM|PM)))"
 
     match = re.match(pattern, s)
 
     if match:
-        # print(match.groups())
+
         first, second = match.group("first", "second")
+        # if match.group(7) != "to":
+        #     raise ValueError
         first = convert_to_24h(first)
         second = convert_to_24h(second)
 
         return f"{first} to {second}"
     else:
-        print("There is no match")
-        return False
+        raise ValueError
+    
 
+try:
+    print(convert(sys.argv[1]))
+    sys.exit()
+except IndexError:
+    pass
 
 if __name__ == "__main__":
     main()
