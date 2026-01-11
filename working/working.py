@@ -13,11 +13,15 @@ def convert_to_24h(time):
             hour, minute = time2.split(":")
             if int(hour) < 12:
                 hour = int(hour) + 12
+            elif int(hour) == 12:
+                hour = 0
         else:
             hour = time.split(" ")[0]
             if int(hour) < 12:
                 hour = int(hour) + 12
-            minute = "00"
+                minute = 0
+            elif int(hour) == 12:
+                hour = 0
     elif "AM" in time:
         if ":" in time:
             time2 = time.split(" ")[0]
@@ -26,9 +30,7 @@ def convert_to_24h(time):
             minute = int(minute)
         else:
             hour = int(time.split(" ")[0])
-            minute = "00"
-        if int(hour) == 12:
-            hour = 0
+            minute = 0
 
     # if hour > 23 or  minute > 60:
     #     raise ValueError
@@ -55,7 +57,7 @@ def convert(s):
         return f"{first} to {second}"
     else:
         raise ValueError
-    
+
 
 try:
     print(convert(sys.argv[1]))
