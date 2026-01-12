@@ -8,14 +8,13 @@ def main():
 def convert(fraction):
     while True:
         try:
-            num1, num2 = fraction.split('/')
+            num1, num2 = fraction.split("/")
 
-            if (num1.isdigit()):
+            if num1.isdigit():
                 raise ValueError
 
             num1 = int(num1)
             num2 = int(num2)
-
 
             answer = (num1 / num2) * 100
             answer = round(answer)

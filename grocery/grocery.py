@@ -1,9 +1,9 @@
 def main() -> None:
-    items: dict ={}
+    items: dict = {}
 
     while True:
         try:
-            item:str = input("").upper()
+            item: str = input("").upper()
             if item in items:
                 items[item] += 1
             else:
@@ -17,9 +17,5 @@ def main() -> None:
         print(value, key)
 
 
-
-
-
 if __name__ == "__main__":
     main()
-

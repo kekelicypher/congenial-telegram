@@ -40,7 +40,7 @@ def third(c):
 
 
 def fourth(d):
-    letters = [',', '.', ',', '!', '?']
+    letters = [",", ".", ",", "!", "?"]
     for i in d:
         if i in letters:
             return False

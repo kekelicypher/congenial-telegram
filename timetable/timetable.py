@@ -26,7 +26,7 @@ def create_table():
         table = tabulate(table, tablefmt="grid", headers="firstrow")
         return table
 
-    except (FileNotFoundError):
+    except FileNotFoundError:
         sys.exit("File does not exist")
 
 

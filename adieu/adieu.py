@@ -1,5 +1,7 @@
 import inflect
+
 p = inflect.engine()
+
 
 def main():
     names = []
@@ -7,7 +9,7 @@ def main():
     while True:
         try:
             name = input("Name: ")
-            
+
             names.append(name)
 
         except EOFError:

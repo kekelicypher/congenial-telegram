@@ -12,17 +12,20 @@ def is_valid(s):
     else:
         return False
 
+
 def first(a):
     if a[:2].isalpha():
         return True
     else:
         return False
 
+
 def second(b):
     if len(b) >= 2 and len(b) <= 6:
         return True
     else:
         return False
+
 
 def third(c):
     number = False
@@ -35,8 +38,9 @@ def third(c):
             return False
     return True
 
+
 def fourth(d):
-    letters = [',', '.', ',', '!', '?']
+    letters = [",", ".", ",", "!", "?"]
     for i in d:
         if i in letters:
             return False

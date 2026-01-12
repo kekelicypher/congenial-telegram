@@ -13,7 +13,11 @@ if os.path.splitext(sys.argv[1])[1] != os.path.splitext(sys.argv[2])[1]:
 #     if os.path.splitext(infile)[1] not in [[".jpg", ".jpeg", ".png"]]:
 #         sys.exit("File type not supported")
 
-if os.path.splitext(sys.argv[1])[1] not in [".jpg", ".jpeg", ".png"] and os.path.splitext(sys.argv[2])[1] not in [".jpg", ".jpeg", ".png"]:
+if os.path.splitext(sys.argv[1])[1] not in [
+    ".jpg",
+    ".jpeg",
+    ".png",
+] and os.path.splitext(sys.argv[2])[1] not in [".jpg", ".jpeg", ".png"]:
     sys.exit("File type not supported")
 
 

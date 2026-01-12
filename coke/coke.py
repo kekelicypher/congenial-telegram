@@ -16,14 +16,11 @@ def main():
     print(f"Change Owed: {total - 50 }")
 
 
-
-
-
-
 def validate_money(money):
     if money in [25, 10, 5]:
         return money
     else:
         return 0
+
 
 main()

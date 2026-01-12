@@ -1,9 +1,8 @@
 def main():
     playback = input()
-    playback = playback.replace(' ', '...')
+    playback = playback.replace(" ", "...")
 
     print(playback)
-
 
 
 main()
