@@ -16,7 +16,11 @@ def parse(s):
         return None
 
 
-...
+if len(sys.argv) > 1:
+    for url in sys.argv[1:]:
+        print(parse(url))
+    sys.exit()
+
 
 if __name__ == "__main__":
     main()
