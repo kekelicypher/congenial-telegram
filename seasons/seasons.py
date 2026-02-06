@@ -10,11 +10,10 @@ def main():
         date_of_birth = input("Enter date of birth: ")    
         print(convert(date_of_birth))
     except Exception:
-        sys.exit("Invalid date")
+        sys.exit()
 
 
 def convert(date_of_birth):
-
     date_of_birth = date.fromisoformat(date_of_birth)
     age = date.today() - date_of_birth
     age_in_minutes = age.days*24*60
